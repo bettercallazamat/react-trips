@@ -1,7 +1,7 @@
-const Home = () => (
+const User = () => (
   <>
-    Home
+    User
   </>
 );
 
-export default Home;
+export default User;
