@@ -29,7 +29,7 @@ const LoginForm = ({ onCancel }) => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleLogin} className="LoginForm">
       <input name="username" type="text" onChange={handleChange} />
       <input name="password" type="password" onChange={handleChange} />
       <button type="submit">Login</button>

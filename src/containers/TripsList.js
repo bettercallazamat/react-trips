@@ -1,13 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import TripCard from '../components/TripCard';
+import '../assets/styles/TripsList.css';
 
 const TripsList = ({ trips }) => (
-  <div className="CocktailsList">
+  <div className="TripsList">
     {
-        trips.map((trip) => (
-          <p key={trip.id}>{ trip.title }</p>
-        ))
-      }
+      trips.map((trip) => (
+        <TripCard trip={trip} key={trip.id} />
+      ))
+    }
   </div>
 );
 

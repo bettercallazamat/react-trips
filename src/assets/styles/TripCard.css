@@ -1,0 +1,33 @@
+.TripCard {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin: 20px;
+}
+
+.TripCard img {
+  width: 30%;
+}
+
+.TripCard .info {
+  padding: 20px;
+  width: 50%;
+}
+
+.TripCard .title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.TripCard .desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 25px;
+}
+
+.TripCard .extra-info {
+  width: 20%;
+  text-align: center;
+}

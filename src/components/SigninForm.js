@@ -34,7 +34,7 @@ const SigninForm = ({ onCancel }) => {
   };
 
   return (
-    <form onSubmit={handleSignin}>
+    <form onSubmit={handleSignin} className="SigninForm">
       <input name="username" type="text" onChange={handleChange} />
       <input name="password" type="password" onChange={handleChange} />
       <input name="password_confirmation" type="password" onChange={handleChange} />
