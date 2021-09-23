@@ -22,7 +22,7 @@ const TripCard = ({ trip }) => (
 TripCard.propTypes = {
   trip: PropTypes.shape({
     id: PropTypes.number,
-    title: PropTypes.number,
+    title: PropTypes.string,
     description: PropTypes.string,
     cost: PropTypes.string,
     imageUrl: PropTypes.string,

@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { createUserAction } from '../actions/user';
+import { requestSignup } from '../helpers/requests';
 
-const SigninForm = ({ onCancel }) => {
+const SignupForm = ({ onCancel }) => {
   const [userCred, setUserCred] = useState({ username: '', password: '', passwordConfirmation: '' });
-  const dispatch = useDispatch();
 
   let username;
   let password;
@@ -27,8 +25,8 @@ const SigninForm = ({ onCancel }) => {
   };
 
   const handleSignin = (e) => {
+    requestSignup(userCred.username, userCred.password, userCred.passwordConfirmation);
     e.preventDefault();
-    dispatch(createUserAction(userCred));
     e.target.reset();
     onCancel();
   };
@@ -44,8 +42,8 @@ const SigninForm = ({ onCancel }) => {
   );
 };
 
-SigninForm.propTypes = {
+SignupForm.propTypes = {
   onCancel: PropTypes.func.isRequired,
 };
 
-export default SigninForm;
+export default SignupForm;

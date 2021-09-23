@@ -1,27 +1,25 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import getTripsAction from '../actions/trips';
 import TripsList from '../containers/TripsList';
 import Nav from '../containers/Nav';
+import { requestTripsInfo } from '../helpers/requests';
 
 const Home = () => {
-  const data = useSelector((state) => state.trips);
+  const trips = useSelector((state) => state.trips.tripsCollection);
   const dispatch = useDispatch();
 
-  // const allState = useSelector((state) => state);
-  // console.log(allState);
+  const allState = useSelector((state) => state);
+  console.log(allState);
 
   useEffect(() => {
-    dispatch(getTripsAction());
+    requestTripsInfo(dispatch);
   }, [dispatch]);
 
   return (
     <>
       <Nav />
       <div>
-        {data.loading
-          ? <span className="loading-text">Loading...</span>
-          : <TripsList trips={data.trips} />}
+        <TripsList trips={trips} />
       </div>
     </>
   );

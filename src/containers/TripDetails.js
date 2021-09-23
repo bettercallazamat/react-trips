@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import '../assets/styles/TripDetails.css';
+import ReservationForm from '../components/ReservationForm';
 
 const TripDetails = ({ trip }) => (
   <div className="TripDetails">
@@ -33,6 +34,7 @@ const TripDetails = ({ trip }) => (
       <strong>Cost: </strong>
       {trip.cost}
     </p>
+    <ReservationForm tripDates={trip.trip_dates} />
   </div>
 );
 
@@ -48,6 +50,7 @@ TripDetails.propTypes = {
     distanceByCar: PropTypes.string,
     trekkingDistance: PropTypes.string,
     cost: PropTypes.string,
+    trip_dates: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
 };
 

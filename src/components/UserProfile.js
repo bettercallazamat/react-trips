@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { logoutAction } from '../actions/user';
 import LoginForm from './LoginForm';
-import SigninForm from './SigninForm';
+import SignupForm from './SignupForm';
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -37,12 +38,12 @@ const UserProfile = () => {
         ? <LoginForm onCancel={closeLogin} />
         : null }
       {signinProcess
-        ? <SigninForm onCancel={closeSignin} />
+        ? <SignupForm onCancel={closeSignin} />
         : null }
       {userData.username
         ? (
           <div>
-            <span>{userData.username}</span>
+            <Link to="/profile">{userData.username}</Link>
             <button type="button" name="logout" onClick={handleLogout}>LOGOUT</button>
           </div>
         )

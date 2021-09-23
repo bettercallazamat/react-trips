@@ -1,18 +1,36 @@
-import { CREATE_USER, LOGIN, LOGOUT } from '../constants/actions';
+import {
+  LOGIN,
+  LOGOUT,
+  GET_USER_INFO,
+} from '../constants/actions';
 
 const initialState = {
+  id: null,
   username: null,
   token: null,
+  reservations: [],
+  loading: true,
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CREATE_USER:
-      return { ...state, username: action.username };
     case LOGIN:
-      return { ...state, token: action.token, username: action.username };
+      return {
+        ...state,
+        token: action.payload.auth_token,
+        username: action.payload.username,
+        id: action.payload.id,
+      };
     case LOGOUT:
-      return { ...state, username: null, token: null };
+      return {
+        ...state,
+        username: null,
+        token: null,
+        id: null,
+        reservations: [],
+      };
+    case GET_USER_INFO:
+      return { ...state, reservations: action.payload };
     default:
       return state;
   }

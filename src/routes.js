@@ -13,7 +13,7 @@ const Routes = () => (
       <Route path="/" component={Home} exact />
       <Route path="/Page404" component={Page404} exact />
       <Route path="/trip/:id" component={Trip} exact />
-      <Route path="/user/:id" component={User} exact />
+      <Route path="/profile" component={User} exact />
       <Redirect to="/Page404" />
     </Switch>
   </BrowserRouter>
