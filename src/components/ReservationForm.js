@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { requestReservation } from '../helpers/requests';
 
 const ReservationForm = ({ tripDates }) => {
   const userData = useSelector((state) => state.currentUser);
+  const dispatch = useDispatch();
   const [tripToReserve, setTripToReserve] = useState(tripDates[0].id);
   let tripId;
 
@@ -23,7 +24,7 @@ const ReservationForm = ({ tripDates }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    requestReservation(userData.id, tripToReserve, userData.token);
+    requestReservation(dispatch, userData.id, tripToReserve, userData.token);
   };
 
   return (

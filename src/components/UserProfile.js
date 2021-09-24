@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { logoutAction } from '../actions/user';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
+import { sendFeedbackAction } from '../actions/feedback';
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const UserProfile = () => {
 
   const handleLogout = () => {
     dispatch(logoutAction());
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully logged out.' }));
   };
 
   const openSignin = () => {

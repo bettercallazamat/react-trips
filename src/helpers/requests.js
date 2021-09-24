@@ -2,6 +2,7 @@ import axios from 'axios';
 import { loginAction, getUserInfo } from '../actions/user';
 import getTripsInfo from '../actions/trips';
 import handleError from './handleError';
+import { sendFeedbackAction } from '../actions/feedback';
 
 const requests = {
   users: 'http://localhost:3001/api/v1/users',
@@ -10,7 +11,7 @@ const requests = {
   reservations: 'http://localhost:3001/api/v1/reservations',
 };
 
-export const requestSignup = async (username, password, passwordConf) => {
+export const requestSignup = async (dispatch, username, password, passwordConf) => {
   try {
     await axios.post(requests.users,
       {
@@ -18,8 +19,9 @@ export const requestSignup = async (username, password, passwordConf) => {
         password,
         password_confirmation: passwordConf,
       });
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'User successfully created.' }));
   } catch (error) {
-    handleError('signup', error);
+    handleError(dispatch, 'signup', error);
   }
 };
 
@@ -31,8 +33,9 @@ export const requestLogin = async (dispatch, username, password) => {
         password,
       });
     dispatch(loginAction(response.data));
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully logged in.' }));
   } catch (error) {
-    handleError('login', error);
+    handleError(dispatch, 'login', error);
   }
 };
 
@@ -46,7 +49,7 @@ export const requestUserInfo = async (dispatch, id, token) => {
       });
     dispatch(getUserInfo(response.data.reserved_trip_dates));
   } catch (error) {
-    handleError('userInfo', error);
+    handleError(dispatch, 'userInfo', error);
   }
 };
 
@@ -55,11 +58,11 @@ export const requestTripsInfo = async (dispatch) => {
     const response = await axios.get('http://localhost:3001/api/v1/trips');
     dispatch(getTripsInfo(response.data));
   } catch (error) {
-    handleError('trips', error);
+    handleError(dispatch, 'trips', error);
   }
 };
 
-export const requestReservation = async (userId, tripDateId, token) => {
+export const requestReservation = async (dispatch, userId, tripDateId, token) => {
   try {
     await axios.post(requests.reservations,
       {
@@ -71,7 +74,8 @@ export const requestReservation = async (userId, tripDateId, token) => {
           Authorization: token,
         },
       });
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully reserved trip.' }));
   } catch (error) {
-    handleError('reservation', error);
+    handleError(dispatch, 'reservation', error);
   }
 };
