@@ -14,9 +14,6 @@ const Trip = () => {
     requestTripsInfo(dispatch);
   }, [dispatch, id]);
 
-  const allState = useSelector((state) => state);
-  console.log(allState);
-
   const trip = trips.filter((trip) => trip.id === parseInt(id, 10))[0];
 
   return (

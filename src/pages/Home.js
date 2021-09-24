@@ -8,9 +8,6 @@ const Home = () => {
   const trips = useSelector((state) => state.trips.tripsCollection);
   const dispatch = useDispatch();
 
-  const allState = useSelector((state) => state);
-  console.log(allState);
-
   useEffect(() => {
     requestTripsInfo(dispatch);
   }, [dispatch]);

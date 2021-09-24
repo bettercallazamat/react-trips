@@ -5,7 +5,7 @@ import { requestReservation } from '../helpers/requests';
 
 const ReservationForm = ({ tripDates }) => {
   const userData = useSelector((state) => state.currentUser);
-  const [tripToReserve, setTripToReserve] = useState('');
+  const [tripToReserve, setTripToReserve] = useState(tripDates[0].id);
   let tripId;
 
   const options = tripDates.map((tripDate) => (

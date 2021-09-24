@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { loginAction, getUserInfo } from '../actions/user';
 import getTripsInfo from '../actions/trips';
+import handleError from './handleError';
 
 const requests = {
   users: 'http://localhost:3001/api/v1/users',
@@ -18,7 +19,7 @@ export const requestSignup = async (username, password, passwordConf) => {
         password_confirmation: passwordConf,
       });
   } catch (error) {
-    console.log(error);
+    handleError('signup', error);
   }
 };
 
@@ -31,16 +32,21 @@ export const requestLogin = async (dispatch, username, password) => {
       });
     dispatch(loginAction(response.data));
   } catch (error) {
-    console.log(error);
+    handleError('login', error);
   }
 };
 
-export const requestUserInfo = async (dispatch, id) => {
+export const requestUserInfo = async (dispatch, id, token) => {
   try {
-    const response = await axios.get(`${requests.users}/${id}`);
+    const response = await axios.get(`${requests.users}/${id}`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      });
     dispatch(getUserInfo(response.data.reserved_trip_dates));
   } catch (error) {
-    console.log(error);
+    handleError('userInfo', error);
   }
 };
 
@@ -49,7 +55,7 @@ export const requestTripsInfo = async (dispatch) => {
     const response = await axios.get('http://localhost:3001/api/v1/trips');
     dispatch(getTripsInfo(response.data));
   } catch (error) {
-    console.log(error);
+    handleError('trips', error);
   }
 };
 
@@ -66,6 +72,6 @@ export const requestReservation = async (userId, tripDateId, token) => {
         },
       });
   } catch (error) {
-    console.log(error);
+    handleError('reservation', error);
   }
 };

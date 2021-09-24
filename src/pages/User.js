@@ -6,14 +6,10 @@ import convertDate from '../helpers/convertDate';
 
 const User = () => {
   const userData = useSelector((state) => state.currentUser);
-
-  const allState = useSelector((state) => state);
-  console.log(allState);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    requestUserInfo(dispatch, userData.id);
+    requestUserInfo(dispatch, userData.id, userData.token);
   }, [dispatch]);
 
   return (
