@@ -1,21 +1,29 @@
-import { LOGIN, LOGOUT, GET_USER_INFO } from '../constants/actions';
+import {
+  LOGIN,
+  LOGOUT,
+  GET_USER_INFO_REQUEST,
+  GET_USER_INFO_SUCCESS,
+  GET_USER_INFO_FAILURE,
+} from '../constants/actions';
 
-const loginAction = (data) => ({
+export const loginAction = (data) => ({
   type: LOGIN,
   payload: data,
 });
 
-const logoutAction = () => ({
+export const logoutAction = () => ({
   type: LOGOUT,
 });
 
-const getUserInfo = (data) => ({
-  type: GET_USER_INFO,
+export const getUserInfoRequest = () => ({
+  type: GET_USER_INFO_REQUEST,
+});
+
+export const getUserInfoSuccess = (data) => ({
+  type: GET_USER_INFO_SUCCESS,
   payload: data,
 });
 
-export {
-  loginAction,
-  logoutAction,
-  getUserInfo,
-};
+export const getUserInfoFailure = () => ({
+  type: GET_USER_INFO_FAILURE,
+});

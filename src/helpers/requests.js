@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { loginAction, getUserInfo } from '../actions/user';
+import {
+  loginAction,
+  getUserInfoRequest,
+  getUserInfoSuccess,
+  getUserInfoFailure,
+} from '../actions/user';
 import {
   getTripsRequest,
   getTripsSuccess,
@@ -45,14 +50,16 @@ export const requestLogin = async (dispatch, username, password) => {
 
 export const requestUserInfo = async (dispatch, id, token) => {
   try {
+    dispatch(getUserInfoRequest());
     const response = await axios.get(`${requests.users}/${id}`,
       {
         headers: {
           Authorization: token,
         },
       });
-    dispatch(getUserInfo(response.data.reserved_trip_dates));
+    dispatch(getUserInfoSuccess(response.data.reserved_trip_dates));
   } catch (error) {
+    dispatch(getUserInfoFailure());
     handleError(dispatch, 'userInfo', error);
   }
 };

@@ -1,7 +1,9 @@
 import {
   LOGIN,
   LOGOUT,
-  GET_USER_INFO,
+  GET_USER_INFO_REQUEST,
+  GET_USER_INFO_SUCCESS,
+  GET_USER_INFO_FAILURE,
 } from '../constants/actions';
 
 const initialState = {
@@ -29,8 +31,12 @@ const userReducer = (state = initialState, action) => {
         id: null,
         reservations: [],
       };
-    case GET_USER_INFO:
-      return { ...state, reservations: action.payload };
+    case GET_USER_INFO_REQUEST:
+      return { ...state, loading: true };
+    case GET_USER_INFO_SUCCESS:
+      return { ...state, reservations: action.payload, loading: false };
+    case GET_USER_INFO_FAILURE:
+      return { ...state, loading: false };
     default:
       return state;
   }
