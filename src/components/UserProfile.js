@@ -10,7 +10,7 @@ const UserProfile = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.currentUser);
   const [loginProcess, setLoginProcess] = useState(false);
-  const [signinProcess, setSigninProcess] = useState(false);
+  const [signupProcess, setSignupProcess] = useState(false);
 
   const openLogin = () => {
     setLoginProcess(true);
@@ -25,12 +25,12 @@ const UserProfile = () => {
     dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully logged out.' }));
   };
 
-  const openSignin = () => {
-    setSigninProcess(true);
+  const openSignup = () => {
+    setSignupProcess(true);
   };
 
-  const closeSignin = () => {
-    setSigninProcess(false);
+  const closeSignup = () => {
+    setSignupProcess(false);
   };
 
   return (
@@ -38,20 +38,20 @@ const UserProfile = () => {
       {loginProcess
         ? <LoginForm onCancel={closeLogin} />
         : null }
-      {signinProcess
-        ? <SignupForm onCancel={closeSignin} />
+      {signupProcess
+        ? <SignupForm onCancel={closeSignup} />
         : null }
       {userData.username
         ? (
-          <div>
+          <div className="UserProfile">
             <Link to="/profile">{userData.username}</Link>
-            <button type="button" name="logout" onClick={handleLogout}>LOGOUT</button>
+            <button className="logout btn" type="button" name="logout" onClick={handleLogout}>LOGOUT</button>
           </div>
         )
         : (
-          <div>
-            <button type="button" onClick={openLogin}>LOGIN</button>
-            <button type="button" onClick={openSignin}>SIGN IN</button>
+          <div className="UserProfile">
+            <button className="login btn" type="button" onClick={openLogin}>LOGIN</button>
+            <button className="signup btn" type="button" onClick={openSignup}>SIGN UP</button>
           </div>
         )}
     </div>

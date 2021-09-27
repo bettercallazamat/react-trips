@@ -4,11 +4,13 @@ import logo from '../assets/images/logo.png';
 import '../assets/styles/Nav.css';
 
 const Nav = () => (
-  <div className="Nav">
-    <Link to="/" title="Home Page">
-      <img alt="logo" src={logo} />
-    </Link>
-    <UserProfile />
+  <div className="NavWrapper">
+    <nav className="nav">
+      <Link to="/" title="Home Page">
+        <img alt="logo" src={logo} />
+      </Link>
+      <UserProfile />
+    </nav>
   </div>
 );
 
