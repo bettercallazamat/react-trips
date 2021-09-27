@@ -43,9 +43,11 @@ export const requestLogin = async (dispatch, username, password) => {
         username,
         password,
       });
-    dispatch(loginAction(response.data));
-    requestUserInfo(dispatch, response.data.id, response.data.auth_token);
-    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully logged in.' }));
+    if (response.data.auth_token) {
+      dispatch(loginAction(response.data));
+      requestUserInfo(dispatch, response.data.id, response.data.auth_token);
+      dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully logged in.' }));
+    }
   } catch (error) {
     handleError(dispatch, 'login', error);
   }
@@ -73,7 +75,7 @@ export const requestTripsInfo = async (dispatch) => {
     dispatch(getTripsSuccess(response.data));
   } catch (error) {
     dispatch(getTripsFailure);
-    // handleError(dispatch, 'trips', error);
+    handleError(dispatch, 'trips', error);
   }
 };
 
