@@ -1,30 +1,39 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Nav from '../containers/Nav';
 import TripDetails from '../containers/TripDetails';
 import Feedback from '../components/Feedback';
-import { requestTripsInfo } from '../helpers/requests';
+// import { requestTripsInfo } from '../helpers/requests';
 
 const Trip = () => {
-  const dispatch = useDispatch();
   const trips = useSelector((state) => state.trips.tripsCollection);
+  // console.log(trips);
   const feedbackData = useSelector((state) => state.feedback);
   const { id } = useParams();
+  const [trip, setTrip] = useState({});
+
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   requestTripsInfo(dispatch);
+  // }, [dispatch, id]);
 
   useEffect(() => {
-    requestTripsInfo(dispatch);
-  }, [dispatch, id]);
-
-  const trip = trips.filter((trip) => trip.id === parseInt(id, 10))[0];
+    const filteredTrip = trips.filter((trip) => trip.id === parseInt(id, 10))[0];
+    setTrip(filteredTrip);
+    setLoading(false);
+    console.log('LOADED');
+    console.log(loading);
+    console.log(filteredTrip);
+  }, [id]);
 
   return (
     <>
-      <Nav />
       {feedbackData.active
         ? <Feedback type={feedbackData.type} feedback={feedbackData.feedback} />
         : null}
-      <TripDetails trip={trip} />
+      {loading
+        ? <span>Loading</span>
+        : <TripDetails trip={trip} />}
     </>
   );
 };

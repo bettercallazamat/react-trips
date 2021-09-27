@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestUserInfo } from '../helpers/requests';
-import Nav from '../containers/Nav';
 import Feedback from '../components/Feedback';
 import convertDate from '../helpers/convertDate';
 
@@ -16,7 +15,6 @@ const User = () => {
 
   return (
     <div>
-      <Nav />
       {feedbackData.active
         ? <Feedback type={feedbackData.type} feedback={feedbackData.feedback} />
         : null}
