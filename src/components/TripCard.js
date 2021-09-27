@@ -4,15 +4,17 @@ import '../assets/styles/TripCard.css';
 
 const TripCard = ({ trip }) => (
   <div className="TripCard">
-    <img alt="trip" src={trip.imageUrl} />
+    <Link to={`/trip/${trip.id}`} key={trip.id} className="trip-img">
+      <img alt="trip" src={trip.imageUrl} />
+    </Link>
     <div className="info">
       <h3 className="title">{trip.title}</h3>
       <p className="desc">{trip.description}</p>
     </div>
     <div className="extra-info">
-      <p>{trip.cost}</p>
-      <p>per person</p>
-      <Link to={`/trip/${trip.id}`} key={trip.id}>
+      <p className="trip-cost">{trip.cost}</p>
+      <p className="trip-cost-comment">* per person</p>
+      <Link to={`/trip/${trip.id}`} key={trip.id} className="details-link">
         <p>DETAILS</p>
       </Link>
     </div>

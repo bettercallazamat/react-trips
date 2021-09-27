@@ -9,7 +9,6 @@ import { sendFeedbackAction } from '../actions/feedback';
 const UserProfile = () => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.currentUser);
-  // console.log(userData);
   const [loginProcess, setLoginProcess] = useState(false);
   const [signinProcess, setSigninProcess] = useState(false);
 
