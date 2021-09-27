@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { loginAction, getUserInfo } from '../actions/user';
-import getTripsInfo from '../actions/trips';
+import {
+  getTripsRequest,
+  getTripsSuccess,
+  getTripsFailure,
+} from '../actions/trips';
 import handleError from './handleError';
 import { sendFeedbackAction } from '../actions/feedback';
 
@@ -55,10 +59,12 @@ export const requestUserInfo = async (dispatch, id, token) => {
 
 export const requestTripsInfo = async (dispatch) => {
   try {
+    dispatch(getTripsRequest());
     const response = await axios.get('http://localhost:3001/api/v1/trips');
-    dispatch(getTripsInfo(response.data));
+    dispatch(getTripsSuccess(response.data));
   } catch (error) {
-    handleError(dispatch, 'trips', error);
+    dispatch(getTripsFailure);
+    // handleError(dispatch, 'trips', error);
   }
 };
 

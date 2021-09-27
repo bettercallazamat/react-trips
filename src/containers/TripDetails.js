@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import '../assets/styles/TripDetails.css';
-import ReservationForm from '../components/ReservationForm';
+// import ReservationForm from '../components/ReservationForm';
 
 const TripDetails = ({ trip }) => (
   <div className="TripDetails">
@@ -34,7 +34,7 @@ const TripDetails = ({ trip }) => (
       <strong>Cost: </strong>
       {trip.cost}
     </p>
-    <ReservationForm tripDates={trip.trip_dates} />
+    {/* <ReservationForm tripDates={trip.trip_dates} /> */}
   </div>
 );
 

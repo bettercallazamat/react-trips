@@ -5,7 +5,7 @@ import TripsList from '../containers/TripsList';
 import Feedback from '../components/Feedback';
 
 const Home = () => {
-  const trips = useSelector((state) => state.trips.tripsCollection);
+  const trips = useSelector((state) => state.trips);
   const feedbackData = useSelector((state) => state.feedback);
 
   // const dispatch = useDispatch();
@@ -20,7 +20,9 @@ const Home = () => {
         ? <Feedback type={feedbackData.type} feedback={feedbackData.feedback} />
         : null }
       <div>
-        <TripsList trips={trips} />
+        {trips.loading
+          ? <span>Loading...</span>
+          : <TripsList trips={trips.tripsCollection} />}
       </div>
     </>
   );

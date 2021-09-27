@@ -1,8 +1,14 @@
-import { GET_TRIPS } from '../constants/actions';
+import { GET_TRIPS_REQUEST, GET_TRIPS_SUCCESS, GET_TRIPS_FAILURE } from '../constants/actions';
 
-const getTripsInfo = (data) => ({
-  type: GET_TRIPS,
+export const getTripsRequest = () => ({
+  type: GET_TRIPS_REQUEST,
+});
+
+export const getTripsSuccess = (data) => ({
+  type: GET_TRIPS_SUCCESS,
   payload: data,
 });
 
-export default getTripsInfo;
+export const getTripsFailure = () => ({
+  type: GET_TRIPS_FAILURE,
+});

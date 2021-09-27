@@ -1,4 +1,6 @@
-export const GET_TRIPS = 'GET_TRIPS';
+export const GET_TRIPS_REQUEST = 'GET_TRIPS_REQUEST';
+export const GET_TRIPS_SUCCESS = 'GET_TRIPS_SUCCESS';
+export const GET_TRIPS_FAILURE = 'GET_TRIPS_FAILURE';
 
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
