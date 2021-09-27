@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { requestReservation } from '../helpers/requests';
+import convertDate from '../helpers/convertDate';
 
 const ReservationForm = ({ tripDates }) => {
   const userData = useSelector((state) => state.currentUser);
@@ -9,11 +10,13 @@ const ReservationForm = ({ tripDates }) => {
   const [tripToReserve, setTripToReserve] = useState(tripDates[0].id);
   let tripId;
 
-  const options = tripDates.map((tripDate) => (
-    <option value={tripDate.id} key={tripDate.id}>
-      {tripDate.date}
-    </option>
-  ));
+  const options = tripDates
+    .filter((tripDate) => (new Date(tripDate.date)).getTime() > (new Date()).getTime())
+    .map((tripDate) => (
+      <option value={tripDate.id} key={tripDate.id}>
+        {convertDate(new Date(tripDate.date))}
+      </option>
+    ));
 
   const handleChange = (e) => {
     if (e.target.name === 'trip-date-selection') {
