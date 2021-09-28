@@ -31,11 +31,13 @@ const ReservationForm = ({ tripDates }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="reservation-form">
+      <h3 className="title">RESERVATION</h3>
+      <p>Choose available date of the trip:</p>
       <select name="trip-date-selection" onChange={handleChange}>
         {options}
       </select>
-      <button type="submit">RESERVE</button>
+      <button className="action" type="submit">RESERVE</button>
     </form>
   );
 };

@@ -6,35 +6,41 @@ const TripDetails = ({ trip }) => (
   <div className="TripDetails">
     <h3 className="title">{trip.title}</h3>
     <img alt="trip" src={trip.imageUrl} />
-    <p className="description">
-      <strong>Description: </strong>
-      {trip.description}
-    </p>
-    <p className="description">
-      <strong>Tour details text: </strong>
-      {trip.tourDetailsText}
-    </p>
-    <p className="description">
-      <strong>Altitude difference: </strong>
-      {trip.altitudeDifference}
-    </p>
-    <p className="description">
-      <strong>Season: </strong>
-      {trip.season}
-    </p>
-    <p className="description">
-      <strong>Distance by car: </strong>
-      {trip.distanceByCar}
-    </p>
-    <p className="description">
-      <strong>Trekking distance: </strong>
-      {trip.trekkingDistance}
-    </p>
-    <p className="description">
-      <strong>Cost: </strong>
-      {trip.cost}
-    </p>
-    <ReservationForm tripDates={trip.trip_dates} />
+    <div className="columns">
+      <div className="description">
+        <p className="description-item">
+          <strong>Description: </strong>
+          {trip.description}
+        </p>
+        <p className="description-item">
+          <strong>Tour details text: </strong>
+          {trip.tourDetailsText}
+        </p>
+        <p className="description-item">
+          <strong>Altitude difference: </strong>
+          {trip.altitudeDifference}
+        </p>
+        <p className="description-item">
+          <strong>Season: </strong>
+          {trip.season}
+        </p>
+        <p className="description-item">
+          <strong>Distance by car: </strong>
+          {trip.distanceByCar}
+        </p>
+        <p className="description-item">
+          <strong>Trekking distance: </strong>
+          {trip.trekkingDistance}
+        </p>
+        <p className="description-item">
+          <strong>Cost: </strong>
+          {trip.cost}
+        </p>
+      </div>
+      <div className="reservation-form-wrapper">
+        <ReservationForm tripDates={trip.trip_dates} />
+      </div>
+    </div>
   </div>
 );
 
