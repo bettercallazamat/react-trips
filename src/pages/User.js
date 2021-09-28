@@ -7,7 +7,6 @@ import '../assets/styles/User.css';
 
 const User = () => {
   const userData = useSelector((state) => state.currentUser);
-  console.log(userData);
   const dispatch = useDispatch();
 
   useEffect(() => {
