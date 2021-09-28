@@ -50,3 +50,7 @@
 .User .title {
   width: 40%;
 }
+
+.User .noReservations {
+  text-align: center;
+}

@@ -37,7 +37,7 @@ const SignupForm = ({ onCancel }) => {
   return (
     <div className="modal">
       <form onSubmit={handleSignin} className="SignupForm modal-content">
-        <h3 className="title">LOG IN</h3>
+        <h3 className="title">SIGN UP</h3>
         <input name="username" type="text" placeholder="username" onChange={handleChange} />
         <input name="password" type="password" placeholder="password" onChange={handleChange} />
         <input name="password_confirmation" type="password" placeholder="password confirmation" onChange={handleChange} />

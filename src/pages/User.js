@@ -21,6 +21,32 @@ const User = () => {
     return null;
   };
 
+  const reservationsReturner = (reservations) => {
+    if (reservations[0]) {
+      return (
+        userData.reservations.map((reservation) => (
+          <div className="reserved-trip" key={reservation.id}>
+            <p className="date">
+              <span>When: </span>
+              {convertDate(new Date(reservation.date))}
+            </p>
+            <p className="title">
+              <span>Where: </span>
+              <Link to={`/trip/${reservation.trip.id}`} className="trip-link">
+                {reservation.trip.title}
+              </Link>
+            </p>
+            <p className="created">
+              <span>Reserved at: </span>
+              {convertDate(new Date(reservation.created_at))}
+            </p>
+          </div>
+        ))
+      );
+    }
+    return <p className="noReservations">No reservations made.</p>;
+  };
+
   return (
     <>
       {redirectTo404(userData)}
@@ -30,30 +56,9 @@ const User = () => {
           <span>{userData.username}</span>
         </p>
         <h4>Your reservations:</h4>
-        {
-          userData.loading
-            ? <span className="loading">Loading...</span>
-            : (
-              userData.reservations.map((reservation) => (
-                <div className="reserved-trip" key={reservation.id}>
-                  <p className="date">
-                    <span>When: </span>
-                    {convertDate(new Date(reservation.date))}
-                  </p>
-                  <p className="title">
-                    <span>Where: </span>
-                    <Link to={`/trip/${reservation.trip.id}`} className="trip-link">
-                      {reservation.trip.title}
-                    </Link>
-                  </p>
-                  <p className="created">
-                    <span>Reserved at: </span>
-                    {convertDate(new Date(reservation.created_at))}
-                  </p>
-                </div>
-              ))
-            )
-        }
+        { userData.loading
+          ? <span className="loading">Loading...</span>
+          : reservationsReturner(userData.reservations)}
       </div>
     </>
   );
