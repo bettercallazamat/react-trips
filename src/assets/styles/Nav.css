@@ -17,8 +17,17 @@ nav img {
   width: 220px;
 }
 
-.UserProfile > * {
+.UserProfile > button {
   margin-left: 20px;
+}
+
+.UserProfile a {
+  text-decoration: none;
+  color: #ef4b27;
+}
+
+.UserProfile a:hover {
+  text-decoration: underline;
 }
 
 .UserProfile .btn {
@@ -28,14 +37,32 @@ nav img {
   line-height: 30px;
 }
 
+.UserProfile .btn:hover {
+  cursor: pointer;
+}
+
 .signup {
   border: none;
   background-color: #ef4b27;
   color: #fff;
 }
 
-.login {
+.signup:hover {
   background-color: transparent;
   border: 2px solid #ef4b27;
   color: #ef4b27;
+}
+
+.login,
+.logout {
+  background-color: transparent;
+  border: 2px solid #ef4b27;
+  color: #ef4b27;
+}
+
+.login:hover,
+.logout:hover {
+  border: none;
+  background-color: #ef4b27;
+  color: #fff;
 }

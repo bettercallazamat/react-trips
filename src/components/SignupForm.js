@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { requestSignup } from '../helpers/requests';
+import '../assets/styles/modal.css';
 
 const SignupForm = ({ onCancel }) => {
   const [userCred, setUserCred] = useState({ username: '', password: '', passwordConfirmation: '' });
@@ -34,13 +35,18 @@ const SignupForm = ({ onCancel }) => {
   };
 
   return (
-    <form onSubmit={handleSignin} className="SigninForm">
-      <input name="username" type="text" onChange={handleChange} />
-      <input name="password" type="password" onChange={handleChange} />
-      <input name="password_confirmation" type="password" onChange={handleChange} />
-      <button type="submit">SIGN IN</button>
-      <button type="button" onClick={onCancel}>Cancel</button>
-    </form>
+    <div className="modal">
+      <form onSubmit={handleSignin} className="SignupForm modal-content">
+        <h3 className="title">LOG IN</h3>
+        <input name="username" type="text" placeholder="username" onChange={handleChange} />
+        <input name="password" type="password" placeholder="password" onChange={handleChange} />
+        <input name="password_confirmation" type="password" placeholder="password confirmation" onChange={handleChange} />
+        <div className="buttons">
+          <button type="submit" className="action">SIGN UP</button>
+          <button type="button" className="cancel" onClick={onCancel}>Cancel</button>
+        </div>
+      </form>
+    </div>
   );
 };
 
