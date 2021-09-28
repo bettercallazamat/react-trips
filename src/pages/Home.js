@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
       {trips.loading
-        ? <span>Loading...</span>
+        ? <span className="loading">Loading...</span>
         : <TripsList trips={trips.tripsCollection} />}
     </div>
   );

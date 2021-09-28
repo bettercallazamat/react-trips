@@ -9,7 +9,7 @@ const Trip = () => {
   return (
     <>
       { trips.loading
-        ? <span>Loading</span>
+        ? <span className="loading">Loading...</span>
         : trips.tripsCollection
           .filter((trip) => trip.id === parseInt(id, 10))
           .map((trip) => (<TripDetails trip={trip} key={trip.id} />)) }

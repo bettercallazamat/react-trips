@@ -29,3 +29,28 @@ code {
     'Courier New',
     monospace;
 }
+
+.loading {
+  display: block;
+  text-align: center;
+  margin: 40px auto;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ef4b27;
+}
+
+.TripsList {
+  max-width: 1300px;
+  margin: 40px auto 20px auto;
+}
+
+.Page404 {
+  display: flex;
+  justify-content: center;
+}
+
+.Page404 img {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
