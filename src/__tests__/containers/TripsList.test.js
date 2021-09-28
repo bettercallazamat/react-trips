@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import TripsList from '../../containers/TripsList';
 
 describe('TripCard', () => {
-  configure({ adapter: new Adapter() })
+  configure({ adapter: new Adapter() });
   const trips = [
     {
       id: 1,

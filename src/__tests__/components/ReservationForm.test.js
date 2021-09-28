@@ -11,42 +11,46 @@ const mockStore = configureStore([]);
 const initialState = {
   currentUser: {
     id: 1,
-    username: "azamat",
-    token: "TOKEN",
+    username: 'azamat',
+    token: 'TOKEN',
     reservations: [
       {
         id: 1,
-        date: "2021-11-30",
-        created_at: "2021-09-27T15:44:07.581Z",
+        date: '2021-11-30',
+        created_at: '2021-09-27T15:44:07.581Z',
         trip: {
           id: 1,
-          title: "ALAMEDIN GORGE"
-        }
+          title: 'ALAMEDIN GORGE',
+        },
       },
     ],
     loading: false,
-  }
+  },
 };
 
 describe('TripCard', () => {
   let store;
-  configure({ adapter: new Adapter() })
-  const trip_dates = [
+  configure({ adapter: new Adapter() });
+  const tripDates = [
     {
-      "id": 1,
-      "date": "2021-11-30"
+      id: 1,
+      date: '2021-11-30',
     },
     {
-      "id": 2,
-      "date": "2021-12-01"
+      id: 2,
+      date: '2021-12-01',
     },
-  ]
+  ];
 
   it('should match the snapshot', () => {
     store = mockStore(initialState);
     store.dispatch = jest.fn();
 
-    const wrapper = shallow(<Provider store={store}><ReservationForm tripDates={trip_dates} /></Provider>);
+    const wrapper = shallow(
+      <Provider store={store}>
+        <ReservationForm tripDates={tripDates} />
+      </Provider>,
+    );
     expect(wrapper).toMatchSnapshot();
   });
 });

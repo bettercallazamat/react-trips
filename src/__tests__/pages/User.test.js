@@ -13,16 +13,16 @@ const initialState1 = {
     tripsCollection: [
       {
         id: 1,
-        title: "ALAMEDIN GORGE",
-        description: "The Alamedin Gorge is one of the four most visited and popular gorges of the Kirghiz Range.",
+        title: 'ALAMEDIN GORGE',
+        description: 'The Alamedin Gorge is one of the four most visited and popular gorges of the Kirghiz Range.',
         trip_dates: [
           {
-            "id": 1,
-            "date": "2021-11-30"
+            id: 1,
+            date: '2021-11-30',
           },
           {
-            "id": 2,
-            "date": "2021-12-01"
+            id: 2,
+            date: '2021-12-01',
           },
         ],
       },
@@ -31,31 +31,31 @@ const initialState1 = {
   },
   currentUser: {
     id: 1,
-    username: "azamat",
-    token: "TOKEN",
+    username: 'azamat',
+    token: 'TOKEN',
     reservations: [
       {
         id: 1,
-        date: "2021-11-30",
-        created_at: "2021-09-27T15:44:07.581Z",
+        date: '2021-11-30',
+        created_at: '2021-09-27T15:44:07.581Z',
         trip: {
           id: 1,
-          title: "ALAMEDIN GORGE"
-        }
+          title: 'ALAMEDIN GORGE',
+        },
       },
     ],
     loading: false,
-  }
+  },
 };
 
 const initialState2 = {
   currentUser: {
     id: 1,
-    username: "azamat",
-    token: "TOKEN",
+    username: 'azamat',
+    token: 'TOKEN',
     reservations: [],
     loading: false,
-  }
+  },
 };
 
 jest.mock('react-router-dom', () => ({

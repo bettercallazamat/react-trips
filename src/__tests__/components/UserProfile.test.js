@@ -13,15 +13,15 @@ const initialState1 = {
     id: null,
     username: null,
     token: null,
-  }
+  },
 };
 
 const initialState2 = {
   currentUser: {
     id: 1,
-    username: "azamat",
-    token: "FAKE-TOKEN",
-  }
+    username: 'azamat',
+    token: 'FAKE-TOKEN',
+  },
 };
 
 jest.mock('react-router-dom', () => ({

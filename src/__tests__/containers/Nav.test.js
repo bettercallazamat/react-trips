@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Nav from '../../containers/Nav';
 
 describe('TripCard', () => {
-  configure({ adapter: new Adapter() })
+  configure({ adapter: new Adapter() });
 
   it('should match the snapshot', () => {
     const wrapper = shallow(<Router><Nav /></Router>);

@@ -1,4 +1,4 @@
-import convertDate from '../helpers/convertDate'
+import convertDate from '../helpers/convertDate';
 
 describe('convertDate', () => {
   it('returns string in  format DD.MM.YYYY', () => {
