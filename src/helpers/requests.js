@@ -14,10 +14,10 @@ import handleError from './handleError';
 import { sendFeedbackAction } from '../actions/feedback';
 
 const requests = {
-  users: 'http://localhost:3001/api/v1/users',
-  login: 'http://localhost:3001/api/v1/login',
-  trips: 'http://localhost:3001/api/v1/trips',
-  reservations: 'http://localhost:3001/api/v1/reservations',
+  users: 'https://azamats-trips-api.herokuapp.com/api/v1/users',
+  login: 'https://azamats-trips-api.herokuapp.com/api/v1/login',
+  trips: 'https://azamats-trips-api.herokuapp.com/api/v1/trips',
+  reservations: 'https://azamats-trips-api.herokuapp.com/api/v1/reservations',
 };
 
 export const requestUserInfo = async (dispatch, id, token) => {
@@ -45,7 +45,7 @@ export const requestLogin = async (dispatch, username, password) => {
       });
     if (response.data.auth_token) {
       dispatch(loginAction(response.data));
-      requestUserInfo(dispatch, response.data.id, response.data.auth_token);
+      await requestUserInfo(dispatch, response.data.id, response.data.auth_token);
       dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully logged in.' }));
     }
   } catch (error) {
@@ -71,7 +71,7 @@ export const requestSignup = async (dispatch, username, password, passwordConf) 
 export const requestTripsInfo = async (dispatch) => {
   try {
     dispatch(getTripsRequest());
-    const response = await axios.get('http://localhost:3001/api/v1/trips');
+    const response = await axios.get(requests.trips);
     dispatch(getTripsSuccess(response.data));
   } catch (error) {
     dispatch(getTripsFailure);
