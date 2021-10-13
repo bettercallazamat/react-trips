@@ -33,7 +33,7 @@
 .modal-content .title {
   text-align: center;
   margin-bottom: 24px;
-  color: #ef4b27;
+  color: #98c211;
 }
 
 .modal-content p {
@@ -59,19 +59,19 @@
 
 .modal-content .cancel {
   border: none;
-  background-color: #ef4b27;
+  background-color: #98c211;
   color: #fff;
 }
 
 .modal-content .action {
   background-color: transparent;
-  border: 2px solid #ef4b27;
-  color: #ef4b27;
+  border: 2px solid #98c211;
+  color: #98c211;
 }
 
 .modal-content .action:hover {
   border: none;
-  background-color: #ef4b27;
+  background-color: #98c211;
   color: #fff;
 }
 
@@ -83,6 +83,6 @@
 .Feedback .modal-content button:hover,
 .modal-content .cancel:hover {
   background-color: transparent;
-  border: 2px solid #ef4b27;
-  color: #ef4b27;
+  border: 2px solid #98c211;
+  color: #98c211;
 }

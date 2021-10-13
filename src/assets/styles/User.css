@@ -12,7 +12,7 @@
 .User .username {
   text-align: center;
   font-size: 24px;
-  background-color: #ef4b27;
+  background-color: #98c211;
   margin: 0 20px;
   padding: 20px 0;
   color: #fff;
@@ -38,7 +38,7 @@
 
 .User .reserved-trip a:hover {
   text-decoration: underline;
-  color: #ef4b27;
+  color: #98c211;
   font-weight: bold;
 }
 

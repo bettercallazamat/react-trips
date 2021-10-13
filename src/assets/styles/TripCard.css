@@ -28,7 +28,7 @@
 }
 
 .TripCard .title {
-  color: #ef4b27;
+  color: #98c211;
   font-size: 20px;
   margin-bottom: 10px;
 }
@@ -66,7 +66,7 @@
 .TripCard .details-link {
   width: fit-content;
   margin-top: 6px;
-  background-color: #e95939;
+  background-color: #98c211;
   padding: 12px 24px;
   text-decoration: none;
   border-radius: 3px;
@@ -76,6 +76,6 @@
 
 .TripCard .details-link:hover {
   background-color: transparent;
-  border: 2px solid #ef4b27;
-  color: #ef4b27;
+  border: 2px solid #98c211;
+  color: #98c211;
 }

@@ -1,6 +1,6 @@
 .TripDetails {
   max-width: 1000px;
-  margin: 30px auto;
+  margin: 30px 0;
   padding: 10px 30px;
   display: flex;
   flex-direction: column;
@@ -54,7 +54,7 @@
   padding: 15px 0;
   width: 100%;
   text-align: center;
-  background-color: #ef4b27;
+  background-color: #98c211;
   color: #fff;
   border-radius: 4px;
 }
@@ -85,13 +85,13 @@
   border-radius: 4px;
   line-height: 30px;
   background-color: transparent;
-  border: 2px solid #ef4b27;
-  color: #ef4b27;
+  border: 2px solid #98c211;
+  color: #98c211;
 }
 
 .reservation-form .action:hover {
   cursor: pointer;
   border: none;
-  background-color: #ef4b27;
+  background-color: #98c211;
   color: #fff;
 }

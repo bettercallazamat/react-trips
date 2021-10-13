@@ -31,6 +31,7 @@ nav img {
 nav .sections {
   width: 120px;
   font-size: 20px;
+  margin-bottom: 10vh;
 }
 
 nav .sections a {
@@ -39,7 +40,7 @@ nav .sections a {
 
 nav .sections p {
   margin-bottom: 10px;
-  background-color: #ef4b27;
+  background-color: #98c211;
   padding: 12px 18px;
   font-weight: bold;
   margin-right: -30px;
@@ -63,7 +64,8 @@ nav .sections p:hover {
 
 nav .UserProfile a {
   text-decoration: none;
-  color: #ef4b27;
+  color: #98c211;
+  margin-bottom: 10px;
 }
 
 .UserProfile a:hover {
@@ -98,26 +100,26 @@ nav .UserProfile a {
 
 .signup {
   border: none;
-  background-color: #ef4b27;
+  background-color: #98c211;
   color: #fff;
 }
 
 .signup:hover {
   background-color: transparent;
-  border: 2px solid #ef4b27;
-  color: #ef4b27;
+  border: 2px solid #98c211;
+  color: #98c211;
 }
 
 .login,
 .logout {
   background-color: transparent;
-  border: 2px solid #ef4b27;
-  color: #ef4b27;
+  border: 2px solid #98c211;
+  color: #98c211;
 }
 
 .login:hover,
 .logout:hover {
   border: none;
-  background-color: #ef4b27;
+  background-color: #98c211;
   color: #fff;
 }
