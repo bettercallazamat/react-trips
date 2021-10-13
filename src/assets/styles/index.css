@@ -30,6 +30,10 @@ code {
     monospace;
 }
 
+#root {
+  display: flex;
+}
+
 .loading {
   display: block;
   text-align: center;
