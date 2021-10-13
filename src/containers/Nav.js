@@ -20,8 +20,8 @@ const Nav = () => (
         </Link>
       </div>
       <div className="socials">
-        <a href="https://github.com/bettercallazamat"><img src={githubIcon} alt="github" /></a>
-        <a href="https://www.linkedin.com/in/azamat-nuriddinov/"><img src={linkedinIcon} alt="linkedin" /></a>
+        <a href="https://github.com/bettercallazamat" target="_blank" rel="noreferrer"><img src={githubIcon} alt="github" /></a>
+        <a href="https://www.linkedin.com/in/azamat-nuriddinov/" target="_blank" rel="noreferrer"><img src={linkedinIcon} alt="linkedin" /></a>
       </div>
     </nav>
   </div>
