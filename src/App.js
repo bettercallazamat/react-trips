@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { requestTripsInfo } from './helpers/requests';
+import Routes from './routes';
+import Feedback from './components/Feedback';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  const feedbackData = useSelector((state) => state.feedback);
+
+  useEffect(() => {
+    requestTripsInfo(dispatch);
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      { feedbackData.active
+        ? <Feedback type={feedbackData.type} feedback={feedbackData.feedback} />
+        : null }
+      <Routes />
+    </>
   );
-}
+};
 
 export default App;

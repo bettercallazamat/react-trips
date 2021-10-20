@@ -1,0 +1,56 @@
+.User {
+  max-width: 800px;
+  margin: 30px 15%;
+}
+
+.User h4 {
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.User .username {
+  text-align: center;
+  font-size: 24px;
+  background-color: #98c211;
+  margin: 0 20px;
+  padding: 20px 30px;
+  color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.User .reserved-trip {
+  display: flex;
+  margin: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.User .reserved-trip p {
+  line-height: 22px;
+}
+
+.User .reserved-trip a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.User .reserved-trip a:hover {
+  text-decoration: underline;
+  color: #98c211;
+  font-weight: bold;
+}
+
+.User .date,
+.User .created {
+  width: 30%;
+}
+
+.User .title {
+  width: 40%;
+}
+
+.User .noReservations {
+  text-align: center;
+}

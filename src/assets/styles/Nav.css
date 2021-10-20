@@ -1,0 +1,125 @@
+.NavWrapper {
+  width: 20%;
+  min-width: 200px;
+  height: 100%;
+  min-height: 100vh;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.3s;
+  position: sticky;
+  top: 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px 30px;
+  height: 100vh;
+}
+
+nav .main a {
+  display: block;
+  text-align: center;
+}
+
+nav img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+nav .sections {
+  width: 120px;
+  font-size: 20px;
+  margin-bottom: 10vh;
+}
+
+nav .sections a {
+  text-decoration: none;
+}
+
+nav .sections p {
+  margin-bottom: 10px;
+  background-color: #98c211;
+  padding: 12px 18px;
+  font-weight: bold;
+  margin-right: -30px;
+  color: #fff;
+}
+
+nav .sections p:hover {
+  font-size: 22px;
+}
+
+.UserProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.UserProfile > button {
+  display: block;
+  margin-bottom: 15px;
+}
+
+nav .UserProfile a {
+  text-decoration: none;
+  color: #98c211;
+  margin-bottom: 10px;
+}
+
+.UserProfile a:hover {
+  text-decoration: underline;
+}
+
+.UserProfile .btn {
+  font-weight: bold;
+  border-radius: 4px;
+  width: 100px;
+  line-height: 30px;
+}
+
+.UserProfile .btn:hover {
+  cursor: pointer;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+}
+
+.socials img {
+  width: 35px;
+  margin: 10px 8px 0 8px;
+}
+
+.socials img:hover {
+  transform: scale(1.2);
+  transition: transform 0.5s ease;
+}
+
+.signup {
+  border: none;
+  background-color: #98c211;
+  color: #fff;
+}
+
+.signup:hover {
+  background-color: transparent;
+  border: 2px solid #98c211;
+  color: #98c211;
+}
+
+.login,
+.logout {
+  background-color: transparent;
+  border: 2px solid #98c211;
+  color: #98c211;
+}
+
+.login:hover,
+.logout:hover {
+  border: none;
+  background-color: #98c211;
+  color: #fff;
+}
